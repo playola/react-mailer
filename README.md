@@ -15,7 +15,7 @@ Trying out SendGrid using templates generated with React and compatible for IE.
 After install the dependencies, you can try to send an email via cmd. Some prompts will ask for basic fields in order to send the email, e.g.: `type`, `to`, `from`:
 
 ```
-  npm run send-email
+  npm run mail
 
   // Welcome to react-mailer by playola
   // Which template do you want to use (welcome | invite)?

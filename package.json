@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "send-email": "npm run build && node ./lib/index.js"
+    "mail": "npm run build && node ./lib/index.js"
   },
   "repository": {
     "type": "git",
