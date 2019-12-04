@@ -7,7 +7,7 @@ console.log('Welcome to react-mailer by playola!');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-});
+}); 
 
 rl.question('Which template do you want to use? (welcome | invite) ', function(type = 'welcome') {
   rl.question('To (receiver@test.com)? ', function(to = 'receiver@test.com') {

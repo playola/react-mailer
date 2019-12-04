@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-function Button({ children, align, ...rest })  {
+function InlineButton({ children, align, ...rest })  {
   return (
-    <td className="buttonData" align={align} {...rest}>
-      <a className="buttonLink" href="https://playolaizq.com" target="_blank">
-        <span>
-          {children}
-        </span>
-      </a>
-    </td>
+    <tr width="100%">
+      <td className="buttonData" align={align} {...rest}>
+        <a className="buttonLink" href="https://playolaizq.com" target="_blank">
+          <span>
+            {children}
+          </span>
+        </a>
+      </td>
+    </tr>
+  );
+}
+
+function InlineImage({ src, align = 'center' }) {
+  return (
+    <tr width="100%">
+      <td align={align}>
+        <img className="image" src={src} />
+      </td>
+    </tr>
   );
 }
 
@@ -18,11 +30,8 @@ function EmailTemplate({ to, from, type }) {
   const title = 'playola';
   const welcomeText = 'Hello playola, we are happy to welcome you to playola!';
   const descriptionText = isInvite
-    ? 'You have been invited to join Sanitas clinic, please follow the instructions to start using the platform.'
-    : '';
-  const credentialsText = isInvite
-    ? ''
-    : 'Your login passcode is AKM1';
+    ? 'You have been invited to join playola organization, please follow the instructions to start using the platform.'
+    : 'Your login token is AKM1';
   return (
     <html>
       <head>
@@ -40,18 +49,16 @@ function EmailTemplate({ to, from, type }) {
             </tr>
           </thead>
           <tbody className="contentBody">
-            <tr className="contentRow" width="100%">
+            <tr width="100%">
               <td className="contentData" valign="top" align="left">
                 <p>{welcomeText}</p>
                 <p>{descriptionText}</p>
-                <p>{credentialsText}</p>
               </td>
             </tr>
-            <tr className="contentRow" width="100%">
-              <Button align="right">
-                Go to playola
-              </Button>
-            </tr>
+            <InlineImage src="assets/smiley-face.svg" />
+            <InlineButton align="right">
+              Go to playola
+            </InlineButton>
           </tbody>
         </table>
       </body>
