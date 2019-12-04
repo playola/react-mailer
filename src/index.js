@@ -10,12 +10,12 @@ const rl = readline.createInterface({
 });
 
 rl.question('Which template do you want to use? (welcome | invite) ', function(type = 'welcome') {
-  rl.question('To (test@test.com)? ', function(to) {
-    rl.question('From (test@test.com)? ', function(from) {
-      if (!to || !from) {
+  rl.question('To (receiver@test.com)? ', function(to = 'receiver@test.com') {
+    rl.question('From (sender@test.com)? ', function(from = 'sender@test.com') {
+      /* if (!to || !from) {
         console.error('You need to specify the sender and receiver emails.');
         rl.close();
-      }
+      } */
 
       // Sent email to the specified data.
       console.log('Sending email...');
@@ -26,7 +26,7 @@ rl.question('Which template do you want to use? (welcome | invite) ', function(t
       // Generate HTML file with the sent email template.
       try {
         console.log('Generating HTML file...');
-        fs.appendFileSync('./src/index.html', emailTemplateHtml);
+        fs.writeFileSync('./src/index.html', emailTemplateHtml);
         console.log('HTML generated successfully!');
       } catch (error) {
         console.error('Something went wrong generating the HTML.', error);
