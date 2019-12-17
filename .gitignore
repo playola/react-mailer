@@ -3,4 +3,6 @@
 
 # build
 /lib
+
+# sendgrid env variables
 sendgrid.env

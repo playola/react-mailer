@@ -13,14 +13,11 @@ if (!process.env.SENDGRID_API_KEY) {
 }
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-if (!process.env.TO || !process.env.FROM) {
-  console.error('Please review the TO and FROM emails in "sendgrid.env" file.');
-  console.log('\nThank you for using react-mailer :)');
-  process.exit(0);
-}
+// IMPORTANT!
+// Modify the "to" and "from" variables to send the email properly to an existing address.
 const type = 'welcome';
-const to = process.env.TO;
-const from = process.env.FROM;
+const to = 'your-email@gmail.com';
+const from = 'your-email@gmail.com';
 
 console.log(`\nSending ${type} email to ${to} from ${from}...`);
 
