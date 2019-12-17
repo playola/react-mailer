@@ -34,3 +34,5 @@ Then, we will generate and send an email with the selected properties.
 
   - https://nodejs.org/api/readline.html
   - https://nodejs.org/en/knowledge/command-line/how-to-prompt-for-command-line-input/
+  - https://github.com/sendgrid/sendgrid-nodejs
+

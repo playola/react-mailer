@@ -1,11 +1,33 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import {
+  headerData,
+  buttonData,
+  buttonLink,
+  image,
+  html,
+  tableContainer,
+  contentBody,
+  contentData,
+} from './templates.styles';
+
+function Header({ children, align = 'left' }) {
+  return (
+    <thead>
+      <tr width="100%" height="57">
+        <td style={headerData} valign="top" align={align}>
+          {children}
+        </td>
+      </tr>
+    </thead>
+  );
+}
 
 function InlineButton({ children, align, ...rest })  {
   return (
     <tr width="100%">
-      <td className="buttonData" align={align} {...rest}>
-        <a className="buttonLink" href="https://playolaizq.com" target="_blank">
+      <td style={buttonData} align={align} {...rest}>
+        <a style={buttonLink} href="https://playolaizq.com" target="_blank">
           <span>
             {children}
           </span>
@@ -19,7 +41,7 @@ function InlineImage({ src, align = 'center' }) {
   return (
     <tr width="100%">
       <td align={align}>
-        <img className="image" src={src} />
+        <img style={image} src={src} />
       </td>
     </tr>
   );
@@ -32,25 +54,40 @@ function EmailTemplate({ to, from, type }) {
   const descriptionText = isInvite
     ? 'You have been invited to join playola organization, please follow the instructions to start using the platform.'
     : 'Your login token is AKM1';
+
   return (
-    <html>
+    <table style={tableContainer}>
+      <Header>
+        {title}
+      </Header>
+      <tbody style={contentBody}>
+        <tr width="100%">
+          <td style={contentData} valign="top" align="left">
+            <p>{welcomeText}</p>
+            <p>{descriptionText}</p>
+          </td>
+        </tr>
+        <InlineImage src="assets/smiley-face.svg" />
+        <InlineButton align="right">
+          Go to playola
+        </InlineButton>
+      </tbody>
+    </table>
+  );
+  /* return (
+    <html style={html}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="templates.css"></link>
       </head>
       <body>
-        <table className="tableContainer">
-          <thead>
-            <tr width="100%" height="57">
-              <td className="headerData" valign="top" align="left">
-                {title}
-              </td>
-            </tr>
-          </thead>
-          <tbody className="contentBody">
+        <table style={tableContainer}>
+          <Header>
+            {title}
+          </Header>
+          <tbody style={contentBody}>
             <tr width="100%">
-              <td className="contentData" valign="top" align="left">
+              <td style={contentData} valign="top" align="left">
                 <p>{welcomeText}</p>
                 <p>{descriptionText}</p>
               </td>
@@ -63,7 +100,7 @@ function EmailTemplate({ to, from, type }) {
         </table>
       </body>
     </html>
-  );
+  ); */
 }
 
 /**
