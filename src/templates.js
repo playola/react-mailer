@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import path from 'path';
 
 import Header from './components/Header';
 import InlineButton from './components/InlineButton';
@@ -18,6 +19,9 @@ function EmailTemplate({ to, from, org = 'SendGrid' }) {
   const descriptionText = `${from} invited you to join ${org}, please follow the instructions and join the team :)`;
   const tokenText = 'Your access token is AKM1';
 
+  // TODO: Fix public url from google drive.
+  const logoImageUrl = 'https://drive.google.com/uc?id=1421xZjsnCcBFr5JQd_ddEy-gZ9bmTpp_';
+
   return (
     <table style={tableContainer}>
       <Header>
@@ -31,7 +35,7 @@ function EmailTemplate({ to, from, org = 'SendGrid' }) {
             <p>{tokenText}</p>
           </td>
         </tr>
-        <InlineImage filenamePath="assets/smiley-face.svg" />
+        <InlineImage filenamePath={logoImageUrl} />
         <InlineButton align="right">
           {`Go to ${org}`}
         </InlineButton>
