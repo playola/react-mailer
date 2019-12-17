@@ -14,22 +14,22 @@ if (!process.env.SENDGRID_API_KEY) {
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // IMPORTANT!
-// Modify the "to" and "from" variables to send the email properly to an existing address.
-const type = 'welcome';
-const to = 'your-email@gmail.com';
-const from = 'your-email@gmail.com';
+// Modify the following variables to send the email to an existing address.
+const to = 'your-email-address@gmail.com';
+const from = 'your-email-address@gmail.com';
+const org = 'SendGrid';
 
-console.log(`\nSending ${type} email to ${to} from ${from}...`);
+console.log(`\nSending email to ${to} from ${from}...`);
 
 // Compose the HTML, and generate the email template.
-const emailTemplateHtml = getEmailTemplateHtml(to, from, type);
+const emailTemplateHtml = getEmailTemplateHtml(to, from, org);
 
 // Compose the SendGrid message, and send it.
 const msg = {
   to,
   from,
-  subject: 'Welcome to playola!',
-  text: 'and easy to do anywhere, even with Node.js',
+  subject: `Welcome to ${org}!`,
+  text: 'Trying out email templates with React',
   html: emailTemplateHtml,
 };
 sgMail.send(msg);
