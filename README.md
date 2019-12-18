@@ -12,9 +12,17 @@ Trying out SendGrid using templates generated with React and compatible for IE.
   npm install
 ```
 
-After install the dependencies, you must modify the variables `to` and `from` with a real email. You will find it in index.js > line 19-20.
+After install the dependencies, you must create and modify some variables in order to send an email properly:
 
-Then, it will generate and send an email with the selected receiver and sender.
+  - Create a `sendgrid.env` file with your SendGrid API KEY (see sendgrid.env.example).
+  - Sender and receiver emails: variables `to` and `from` with a valid email. You will find it in `index.js > line 18-19`.
+  - Your public Google Drive id regarding your image. You will find it in `templates.js > line 35`.
+
+Then, you can run the script to generate and send an email with the selected receiver and sender:
+
+```
+  npm run mail
+```
 
 ## References
 
