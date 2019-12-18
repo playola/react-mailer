@@ -14,7 +14,7 @@ if (!process.env.SENDGRID_API_KEY) {
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // IMPORTANT!
-// Modify the following variables to send the email to an existing address.
+// Add the following variables to send the email to an existing address.
 const to = 'your-email@gmail.com';
 const from = 'your-email@gmail.com';
 const org = 'SendGrid';

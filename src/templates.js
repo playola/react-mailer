@@ -18,6 +18,10 @@ function EmailTemplate({ to, from, org = 'SendGrid' }) {
   const descriptionText = `${from} invited you to join ${org}, please follow the instructions and join the team :)`;
   const tokenText = 'Your access token is AKM1z7';
 
+  // IMPORTANT!
+  // Add your public Google Drive id here.
+  const googleDriveImageId = '1PMQf1A3V2EKg8GjxIUxuZQmksi4Hv4Wi';
+
   return (
     <table style={tableContainer}>
       <Header>
@@ -31,8 +35,7 @@ function EmailTemplate({ to, from, org = 'SendGrid' }) {
             <p>{tokenText}</p>
           </td>
         </tr>
-        {/* Your public Google Drive id here */}
-        <InlineImage id="1JVqTjCBWhhbHKGvpzV96nn6PYu5Xfdl-" />
+        <InlineImage id={googleDriveImageId} />
         <InlineButton align="right">
           Learn more >>
         </InlineButton>
